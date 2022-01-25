@@ -20,7 +20,7 @@ import java.util.UUID;
 public class Users {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private  long userId;
+    private  Long userId;
     private String username;
     @Column(nullable = false,unique = true)
     private String mobile;
@@ -28,7 +28,7 @@ public class Users {
     private String password;
 
     @ManyToOne(fetch =FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn(name = "role_id")
     private Role role;
 
 }
