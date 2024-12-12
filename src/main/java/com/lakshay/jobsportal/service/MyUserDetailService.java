@@ -25,8 +25,8 @@ public class MyUserDetailService implements UserDetailsService {
     private final UsersRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        Optional<Users> userOptional = userRepository.findByUsername(username);
+        String a = ""
+;        Optional<Users> userOptional = userRepository.findByUsername(username);
         Users user = userOptional
                 .orElseThrow(()->new UsernameNotFoundException("Username is incorrect"));
         return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),getAuthorities(user.getRole().getName()));
